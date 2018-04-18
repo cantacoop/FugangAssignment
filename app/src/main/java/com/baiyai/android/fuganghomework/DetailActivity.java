@@ -3,6 +3,7 @@ package com.baiyai.android.fuganghomework;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity {
@@ -12,12 +13,14 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        String name = intent.getStringExtra(MainActivity.EXTRA_NAME);
+        String photo = intent.getStringExtra(MainActivity.EXTRA_PHOTO);
 
-        // Capture the layout's TextView and set the string as its text
+        ImageView photoView = findViewById(R.id.me_image);
+        photoView.setImageResource(Utilities.getPhotoResourceId(photo));
+
         TextView textView = findViewById(R.id.me_name);
-        textView.setText(message);
+        textView.setText(name);
     }
 }

@@ -28,7 +28,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
-    public static final String EXTRA_MESSAGE = "MESSAGE";
+    public static final String EXTRA_NAME = "NAME";
+    public static final String EXTRA_PHOTO = "PHOTO";
 
     private static final String DATA_REQUEST_URL = "http://baiyai.com/cantacoop/data.json";
 
@@ -46,8 +47,11 @@ public class MainActivity extends AppCompatActivity {
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                User user = mAdapter.getItem(position);
+
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-                intent.putExtra(EXTRA_MESSAGE, position + "");
+                intent.putExtra(EXTRA_NAME, user.getName());
+                intent.putExtra(EXTRA_PHOTO, user.getPhoto());
                 startActivity(intent);
             }
         });
