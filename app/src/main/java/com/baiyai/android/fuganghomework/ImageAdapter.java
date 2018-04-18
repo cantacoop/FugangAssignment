@@ -1,10 +1,13 @@
 package com.baiyai.android.fuganghomework;
 
 import android.content.Context;
+import android.media.Image;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Custom Adapter
@@ -36,19 +39,27 @@ public class ImageAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
 
-        ImageView imageView;
+        View viewHolder;
+        LayoutInflater inflater = LayoutInflater.from(mContext);
+
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
-            imageView = new ImageView(mContext);
-//            imageView.setLayoutParams(new ViewGroup.LayoutParams(85, 85));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(8, 8, 8, 8);
+            viewHolder = inflater.inflate(R.layout.image_list_item, viewGroup, false);
+
+            ImageView imageView = (ImageView) viewHolder.findViewById(R.id.profile_image);
+            imageView.setImageResource(mThumbIds[position]);
+
+            TextView textView = (TextView) viewHolder.findViewById(R.id.profile_name);
+            textView.setText("John Doe");
+
+
+
+
         } else {
-            imageView = (ImageView) convertView;
+            viewHolder = convertView;
         }
 
-        imageView.setImageResource(mThumbIds[position]);
-        return imageView;
+        return viewHolder;
     }
 
     // references to our images
