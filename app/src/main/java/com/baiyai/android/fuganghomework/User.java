@@ -3,18 +3,18 @@ package com.baiyai.android.fuganghomework;
 public class User {
 
     private String mName;
-    private String mPhotoUrl;
+    private String mPhoto;
 
-    public User(String name, String photoUrl) {
+    public User(String name, String photo) {
         this.mName = name;
-        this.mPhotoUrl = photoUrl;
+        this.mPhoto = photo;
     }
 
     public String getName() {
         return mName;
     }
 
-    public String getPhotoUrl() {
-        return mPhotoUrl;
+    public String getPhoto() {
+        return mPhoto;
     }
 }

@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
             mAdapter.clear();
 
             if (data != null && !data.isEmpty()) {
-
                 mAdapter.addAll(data);
             }
         }
@@ -93,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
          * Returns new URL object from the given string URL.
          */
         private URL createUrl(String stringUrl) {
+
             URL url = null;
             try {
                 url = new URL(stringUrl);
@@ -107,10 +107,12 @@ public class MainActivity extends AppCompatActivity {
          * Make an HTTP request to the given URL and return a String as the response.
          */
         private String makeHttpRequest(URL url) throws IOException {
+
             String jsonResponse = "";
             HttpURLConnection urlConnection = null;
             InputStream inputStream = null;
             try {
+
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.setReadTimeout(10000 /* milliseconds */);
@@ -129,10 +131,12 @@ public class MainActivity extends AppCompatActivity {
                     inputStream.close();
                 }
             }
+
             return jsonResponse;
         }
 
         private String readFromStream(InputStream inputStream) throws IOException {
+
             StringBuilder output = new StringBuilder();
             if (inputStream != null) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
@@ -143,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
                     line = reader.readLine();
                 }
             }
+
             return output.toString();
         }
 

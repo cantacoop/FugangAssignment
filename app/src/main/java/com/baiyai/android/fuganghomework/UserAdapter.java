@@ -30,6 +30,9 @@ public class UserAdapter extends ArrayAdapter<User> {
         TextView nameView = convertView.findViewById(R.id.list_name);
         nameView.setText(user.getName());
 
+        ImageView photoView = convertView.findViewById(R.id.list_photo);
+        photoView.setImageResource(Utilities.getPhotoResourceId(user.getPhoto()));
+
         // Return the completed view to render on screen
         return convertView;
     }
