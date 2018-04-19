@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class UserAdapter extends ArrayAdapter<User> {
@@ -31,7 +33,7 @@ public class UserAdapter extends ArrayAdapter<User> {
         nameView.setText(user.getName());
 
         ImageView photoView = convertView.findViewById(R.id.list_photo);
-        photoView.setImageResource(Utilities.getPhotoResourceId(user.getPhoto()));
+        Glide.with(getContext()).load(user.getPhoto()).into(photoView);
 
         // Return the completed view to render on screen
         return convertView;

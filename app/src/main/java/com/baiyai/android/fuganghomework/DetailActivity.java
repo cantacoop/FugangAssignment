@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 public class DetailActivity extends AppCompatActivity {
 
     @Override
@@ -15,10 +17,10 @@ public class DetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String name = intent.getStringExtra(MainActivity.EXTRA_NAME);
-        String photo = intent.getStringExtra(MainActivity.EXTRA_PHOTO);
+        String photoUrl = intent.getStringExtra(MainActivity.EXTRA_PHOTO);
 
         ImageView photoView = findViewById(R.id.me_image);
-        photoView.setImageResource(Utilities.getPhotoResourceId(photo));
+        Glide.with(this).load(photoUrl).into(photoView);
 
         TextView textView = findViewById(R.id.me_name);
         textView.setText(name);
