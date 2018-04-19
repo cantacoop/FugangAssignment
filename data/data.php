@@ -1,0 +1,52 @@
+<?php
+
+$data = 
+[
+    "users" => [
+        [
+            "photo" => "http://baiyai.com/cantacoop/iron_man.jpg",
+            "name"  => "Iron Man"
+        ],
+        [
+            "photo" => "http://baiyai.com/cantacoop/thor.jpg",
+            "name"  => "Thor"
+        ],
+        [
+            "photo" => "http://baiyai.com/cantacoop/ant_man.jpg",
+            "name"  => "Ant-Man"
+        ],
+        [
+            "photo" => "http://baiyai.com/cantacoop/wash.jpg",
+            "name"  => "Wash"
+        ],
+        [
+            "photo" => "http://baiyai.com/cantacoop/hulk.png",
+            "name"  => "Hulk"
+        ],
+        [
+            "photo" => "http://baiyai.com/cantacoop/captain_america.jpg",
+            "name"  => "Captain America"
+        ],
+        [
+            "photo" => "http://baiyai.com/cantacoop/hawkeye.png",
+            "name"  => "Hawkeye"
+        ],
+        [
+            "photo" => "http://baiyai.com/cantacoop/quick_silver.jpg",
+            "name"  => "Quicksilver"
+        ],
+        [
+            "photo" => "http://baiyai.com/cantacoop/scarlet_witch.jpg",
+            "name"  => "Scarlet Witch"
+        ],
+        [
+            "photo" => "http://baiyai.com/cantacoop/swordsman.jpg",
+            "name"  => "Swordsman"
+        ]
+    ]
+];
+
+$character = json_encode($data);
+
+header('Content-Type: application/json');
+echo $character;

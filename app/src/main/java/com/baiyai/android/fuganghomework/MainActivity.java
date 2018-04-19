@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_NAME = "NAME";
     public static final String EXTRA_PHOTO = "PHOTO";
 
-    private static final String DATA_REQUEST_URL = "http://baiyai.com/cantacoop/data.json";
+    private static final String DATA_REQUEST_URL = "http://baiyai.com/cantacoop/data.php";
 
     private UserAdapter mAdapter;
 
