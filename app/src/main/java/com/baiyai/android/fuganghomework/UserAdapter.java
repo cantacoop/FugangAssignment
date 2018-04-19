@@ -21,21 +21,35 @@ public class UserAdapter extends ArrayAdapter<User> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        ViewHolder viewHolder;
+
         // Get the data item for this position
         User user = getItem(position);
 
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.user_list_item, parent, false);
+            viewHolder = new ViewHolder(convertView);
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        TextView nameView = convertView.findViewById(R.id.list_name);
-        nameView.setText(user.getName());
-
-        ImageView photoView = convertView.findViewById(R.id.list_photo);
-        Glide.with(getContext()).load(user.getPhoto()).into(photoView);
+        viewHolder.nameView.setText(user.getName());
+        Glide.with(getContext()).load(user.getPhoto()).into(viewHolder.photoView);
 
         // Return the completed view to render on screen
         return convertView;
+    }
+
+    private class ViewHolder {
+
+        public TextView nameView;
+        public ImageView photoView;
+
+        public ViewHolder(View convertView) {
+            nameView = convertView.findViewById(R.id.list_name);
+            photoView = convertView.findViewById(R.id.list_photo);
+        }
     }
 }
